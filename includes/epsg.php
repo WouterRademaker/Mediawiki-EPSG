@@ -2,7 +2,7 @@
 class EPSGIO {
 
 	static function EPSG_IO( $coord, $source = null, $target = null ) {
-		$wgEPSG_URL = "http://epsg.io/trans";
+		global $wgEPSG_URL;
     $array = explode(',', preg_replace('/\s+/','',$coord));
     $x = (empty($array[0])) ? null : $array[0];
     $y = (empty($array[1])) ? null : $array[1];
@@ -12,11 +12,8 @@ class EPSGIO {
     return json_decode($json, true);
   }
 
-  static function WGS84ToEPSG( &$parser, $coord, $target) {
-		$array = explode(',', preg_replace('/\s+/','',$coord));
-		[$array[0], $array[1]] = [$array[1], $array[0]];
-		$coord = implode ( ',', $array );
-    $output=self::EPSG_IO( $coord, null , $target);
+	static function EPSG( &$parser, $coord, $source = null, $target = null) {
+		$output=self::EPSG_IO( $coord, $source, $target );
 		return sprintf($output["x"].', '.$output["y"].', '.$output["z"]);
 	}
 
@@ -25,8 +22,11 @@ class EPSGIO {
 		return sprintf($output["y"].', '.$output["x"].', '.$output["z"]);
 	}
 
-	static function EPSG( &$parser, $coord, $source = null, $target = null) {
-		$output=self::EPSG_IO( $coord, $source, $target );
+  static function WGS84ToEPSG( &$parser, $coord, $target) {
+		$array = explode(',', preg_replace('/\s+/','',$coord));
+		[$array[0], $array[1]] = [$array[1], $array[0]];
+		$coord = implode ( ',', $array );
+    $output=self::EPSG_IO( $coord, null , $target);
 		return sprintf($output["x"].', '.$output["y"].', '.$output["z"]);
-	}
+	}	
 }

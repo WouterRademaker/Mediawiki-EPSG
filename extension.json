@@ -16,7 +16,7 @@
 	},
 	"config": {
 		"EPSGEnableFoo": true,
-		"EPSG_URL": "http://epsg.io/trans"
+		"EPSG_URL": "https://epsg.io/trans"
 	},
 	"ConfigRegistry": {
 		"EPSG": "GlobalVarConfig::newInstance"
