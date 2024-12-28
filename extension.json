@@ -15,7 +15,6 @@
 		"EPSGIO": "includes/epsg.php"
 	},
 	"config": {
-		"EPSGEnableFoo": true,
 		"EPSG_URL": "https://api.maptiler.com/coordinates/transform/",
 		"EPSG_KEY": ""
 	},
@@ -24,7 +23,7 @@
 	},
 	"ExtensionMessagesFiles": {
 		"EPSGAlias": "EPSG.i18n.alias.php",
-    "EPSGAlias": "EPSG.i18n.magic.php"
+    	"EPSGAlias": "EPSG.i18n.magic.php"
 	},
 	"Hooks": {
 
