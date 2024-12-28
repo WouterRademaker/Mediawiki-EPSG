@@ -1,17 +1,23 @@
 <?php
-class EPSGIO {
 
+use MediaWiki\MediaWikiServices;
+
+class EPSGIO {
 	static function EPSG_IO( $coord, $source = null, $target = null ) {
-		global $wgEPSG_URL;
+		    $config = MediaWikiServices::getInstance()->getConfigFactory()->makeConfig( 'EPSG' );
+		    $wgEPSG_URL = $config->get( 'EPSG_URL' );
+		    $wgEPSG_KEY = $config->get( 'EPSG_KEY' );
     		$array = explode(',', preg_replace('/\s+/','',$coord));
     		$x = (empty($array[0])) ? 0 : $array[0];
-   		$y = (empty($array[1])) ? 0 : $array[1];
-    		$z = (empty($array[2])) ? 0 : $array[2];
-    		$url = $wgEPSG_URL.'?x='.$x.'&y='.$y.'&z='.$z;
+   			$y = (empty($array[1])) ? 0 : $array[1];
+   			$z = (empty($array[2])) ? 0 : $array[2];
+    		$url = $wgEPSG_URL.$x.','.$y.','.$z.'.json?key='.$wgEPSG_KEY;
     		if (!empty($source)) {$url .= '&s_srs='.$source;}
     		if (!empty($target)) {$url .= '&t_srs='.$target;}
     		$json = file_get_contents($url);
-    		return json_decode($json, true);
+    		$json_array = json_decode($json, true);
+    		return $json_array["results"][0];
+
   	}
 
 	static function EPSG( &$parser, $coord, $source = null, $target = null) {

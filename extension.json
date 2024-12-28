@@ -16,7 +16,7 @@
 	},
 	"config": {
 		"EPSGEnableFoo": true,
-		"EPSG_URL": "https://epsg.io/trans",
+		"EPSG_URL": "https://api.maptiler.com/coordinates/transform/",
 		"EPSG_KEY": ""
 	},
 	"ConfigRegistry": {
