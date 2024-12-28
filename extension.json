@@ -1,6 +1,6 @@
 {
 	"name": "EPSG",
-	"version": "1.1",
+	"version": "2.0",
 	"author": [
 		"Wouter Rademaker"
 	],
@@ -16,7 +16,8 @@
 	},
 	"config": {
 		"EPSGEnableFoo": true,
-		"EPSG_URL": "https://epsg.io/trans"
+		"EPSG_URL": "https://epsg.io/trans",
+		"EPSG_KEY": ""
 	},
 	"ConfigRegistry": {
 		"EPSG": "GlobalVarConfig::newInstance"
