@@ -5,5 +5,5 @@
 	"epsg-desc": "Conversion of geographical coordinates to various systems, using api.maptiler.com.",
 	"epsg-i18n-welcome": "Welcome to the localization file of the EPSG extension.",
 	"epsg-test": "Test EPSG",
-	"epsg-test-intro": "Welcome to the \"Test\" special page of the EPSG extension."
+	"epsg-test-intro": "Welcome to the \"Test\" special page of the EPSG extension. <br/> The difference between the target values and the calculated values should be well less than a metre."
 }
