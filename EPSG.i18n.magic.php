@@ -6,11 +6,11 @@
  * @ingroup Extensions
  */
 
-$magicWords = array();
+$magicWords = [];
 
 /** English (English) */
-$magicWords['en'] = array(
-   'wgs84_2epsg'    => array( 0, 'wgs84_2epsg'),
-   'epsg_2wgs84'    => array( 0, 'epsg_2wgs84'),
-   'epsg'           => array( 0, 'epsg'),
-);
+$magicWords['en'] = [
+   'wgs84_2epsg'    => [ 0, 'wgs84_2epsg' ],
+   'epsg_2wgs84'    => [ 0, 'epsg_2wgs84' ],
+   'epsg'           => [ 0, 'epsg' ],
+];

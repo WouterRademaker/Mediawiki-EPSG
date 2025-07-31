@@ -20,16 +20,12 @@ class SpecialEPSGTest extends SpecialPage {
 	public function execute( $sub ) {
 		$out = $this->getOutput();
 
-		$out->setPageTitle( $this->msg( 'epsg-test' ) );
+		$out->setPageTitleMsg( $this->msg( 'epsg-test' ) );
 
 		$out->addHelpLink( 'How to become a MediaWiki hacker' );
 
 		$out->addWikiMsg( 'epsg-test-intro' );
 
-
-
-		# Do stuff
-		# ...
 		$wikitext = '
 		{|class="wikitable" style="width:100%"
 		!Target value: ||x = 120700.723 m y = 487525.501 m
@@ -77,11 +73,10 @@ class SpecialEPSGTest extends SpecialPage {
 		|Arlon (Butte Saint-Donat)||49.685034,5.816257||x = 754469.25 m<br/>y = 542520.00 m||{{#wgs84_2epsg:49.685034,5.816257|3812}}||{{#epsg_2wgs84:754469.25,542520.00|3812}}
 		|}
    ';
-    		$out->addWikiTextAsInterface( $wikitext );
-    	}
+			$out->addWikiTextAsInterface( $wikitext );
+	}
 
-
-    	protected function getGroupName() {
-    		return 'other';
-    	}
-    }
+	protected function getGroupName() {
+		return 'other';
+	}
+}
